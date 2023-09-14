@@ -10,6 +10,7 @@
 <body>
     <header>
          <a href="#" class="brand">Travel</a>
+         <div class="menu-btn"></div>
          <div class="navigation">
             <div class="navigation-items">
                 <a href="#">Home</a>
@@ -32,5 +33,14 @@
             <a href="#"><i class="fa-brands fa-twitter"></i></a>
         </div>
     </section>
+    
+    <script type="text/javascript">
+        //Responsive navigation menu
+        const menuBtn = document.querySelector(".menu-btn");
+        
+        menuBtn.addEventListener('click',()=>{
+            menuBtn.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
