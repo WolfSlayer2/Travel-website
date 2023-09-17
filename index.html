@@ -1,17 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Travel Website Landing Page - Background Slider</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"  crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="./favicon_io/manifest">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
     <header>
-         <a href="#" class="brand">Travel</a>
-         <div class="menu-btn"></div>
-         <div class="navigation">
+        <a href="#" class="brand">Travel</a>
+        <div class="menu-btn"></div>
+        <div class="navigation">
             <div class="navigation-items">
                 <a href="#">Home</a>
                 <a href="#">About</a>
@@ -19,12 +26,21 @@
                 <a href="#">Gallery</a>
                 <a href="#">Contact</a>
             </div>
-         </div>
+        </div>
     </header>
+
     <section class="home">
+        <video class="video-slide" src="./video/world1.mp4" autoplay muted loop></video>
+        <video class="video-slide" src="./video/world2.mp4" autoplay muted loop></video>
+        <video class="video-slide" src="./video/world3.mp4" autoplay muted loop></video>
+        <video class="video-slide" src="./video/world4.mp4" autoplay muted loop></video>
+        <video class="video-slide" src="./video/world5.mp4" autoplay muted loop></video>
         <div class="content">
-            <h1>Wonderful.<br><span>Island</span></h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo praesentium pariatur, quas velit earum rem. Harum quibusdam similique distinctio eligendi excepturi, sunt doloremque, quae molestiae quo quod magni hic consequatur.</p>
+            <h1>Tranquil.<br><span>Ocean</span></h1>
+            <p>The ocean is a magnificent and awe-inspiring realm that covers more than 70% of our planet's surface. Its
+                boundless expanse of saltwater holds a world of wonders that continues to captivate humanity. The deep
+                blue hues of the ocean, stretching as far as the eye can see, evoke a sense of tranquility and wonder
+                that few other natural phenomena can match.</p>
             <a href="#">Read More</a>
         </div>
         <div class="media-icons">
@@ -32,15 +48,46 @@
             <a href="#"><i class="fa-brands fa-instagram"></i></a>
             <a href="#"><i class="fa-brands fa-twitter"></i></a>
         </div>
+        <div class="slider">
+            <div class="nav-btn active"></div>
+            <div class="nav-btn"></div>
+            <div class="nav-btn"></div>
+            <div class="nav-btn"></div>
+            <div class="nav-btn"></div>
+        </div>
     </section>
-    
+
     <script type="text/javascript">
         //Responsive navigation menu
         const menuBtn = document.querySelector(".menu-btn");
-        
-        menuBtn.addEventListener('click',()=>{
+        const navigation = document.querySelector(".navigation");
+
+        menuBtn.addEventListener('click', () => {
             menuBtn.classList.toggle('active');
+            navigation.classList.toggle('active');
         });
+
+        //video slider 
+        const sliderBtn = document.querySelectorAll('.nav-btn');
+        const slides = document.querySelectorAll('.video-slide');
+
+        const sliderNav = (i) => {
+            sliderBtn.forEach(ele => {
+                ele.classList.remove('active');
+            })
+            slides.forEach(ele => {
+                ele.classList.remove('active');
+            })
+            sliderBtn[i].classList.add('active');
+            slides[i].classList.add('active');
+        }
+
+        sliderBtn.forEach((ele, key) => {
+            ele.addEventListener('click', () => {
+                sliderNav(key);
+            })
+        })
     </script>
 </body>
+
 </html>
